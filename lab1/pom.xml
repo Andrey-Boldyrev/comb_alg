@@ -63,7 +63,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.company.Main</mainClass>
+                            <mainClass>com.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
