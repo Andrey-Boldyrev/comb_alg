@@ -1,4 +1,4 @@
-package com.company;
+package com;
 //класс, проверяющий, какие комбинации подходят
 
 class FindVariants {
@@ -8,27 +8,27 @@ class FindVariants {
         this.ans=ans;
         this.arr=arr;
     }
+
+    //ищем все варианты
     String findVariants() {
-        //ищем все варианты
-        PermutationsWithRepetition gen = new PermutationsWithRepetition(
-                new char[]{'-', '+', '/', '*',' '},
-                arr.length - 1);
-        char[][] variations = gen.getVariations();  //получили все возможные ккомбинации из "-", "+", "/", "*"
-
         //для подсчёта значения выражения
+        char[] source =new char[] {'-', '+', '/', '*',' '};
         Calc c=new Calc();
+        int nump = source.length; //количество переставляемых значения
+        int len = arr.length-1;  //на скольких местах переставляем
+        int h = nump>len? nump:len; // размер массива выбирается как max(nump,len)
+        int[] per = new int[h];
+        for (int i=0;i<h;i++)
+            per[i]=0;//заполнили массив 0 - индексами первой перестановки
 
-        //ищем подходящие комбинации
-
+        //ищем подходящие комбинаци
         String resStr = "";
         String calcStr;
-        for (char [] variation : variations) {  //проходим по всем комбинациям
+        do{    //собираем выражение в одну строку
             int j = 0; //индекс позиции в комбинации.
-
-            //собираем выражение в одну строку
             calcStr=String.valueOf(arr[0]); // первый символ строки это первая цифра
             for (int i = 1; i < arr.length; i++) {  //цикл по числам, для которых нужно подобрать знаки
-                switch (variation[j]) {   //добавляем знаки
+                switch (source[per[j]]) {   //добавляем знаки
                     case '+':
                         calcStr = calcStr+ '+'+ String.valueOf(arr[i]);
                         break;
@@ -53,7 +53,7 @@ class FindVariants {
                 if (Integer.parseInt(res) == ans) {
                     resStr += calcStr + " = " + ans + "\n";
                 }
-        }
+        }while (PermutationsWithRepetition.getNextPlacing(per,nump,len));
         return resStr;
     }
 }

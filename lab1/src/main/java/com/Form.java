@@ -1,4 +1,4 @@
-package com.company;
+package com;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
