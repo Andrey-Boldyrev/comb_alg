@@ -28,3 +28,18 @@ hs_err_pid*
 target
 
 *.iml
+
+
+
+# c#
+.bin
+
+.obj
+
+.Properties
+
+*.config
+
+*.csproj
+
+*.resx
