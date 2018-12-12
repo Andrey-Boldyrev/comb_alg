@@ -36,12 +36,4 @@ bin/
 
 obj/
 
-Properties/
-
 .vs/
-
-*.config
-
-*.csproj
-
-*.resx
