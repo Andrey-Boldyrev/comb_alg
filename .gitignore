@@ -32,11 +32,11 @@ target
 
 
 # c#
-.bin
+bin/
 
-.obj
+obj/
 
-.Properties
+Properties/
 
 *.config
 
