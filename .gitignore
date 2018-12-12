@@ -38,6 +38,8 @@ obj/
 
 Properties/
 
+.vs/
+
 *.config
 
 *.csproj
