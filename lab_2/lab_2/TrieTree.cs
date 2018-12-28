@@ -15,7 +15,7 @@ namespace lab_2
         {
             root = new Node('^', 0, null);
         }
-
+        
         public Node Prefix(string s)
         {
             var currentNode = root;
@@ -98,9 +98,8 @@ namespace lab_2
                 {                   
                     Q.Enqueue(emp);
                     tmp_words.Enqueue(str + emp.Value.ToString());
-                                       
-                    depth--;
                 }
+                depth--;
             }
 
             while(traverseOrder.Count > 0)
